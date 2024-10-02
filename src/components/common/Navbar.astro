@@ -1,0 +1,27 @@
+---
+import { Image } from 'astro:assets';
+import Logo from '../../../public/images/logo.png';
+import MobileMenu from './MobileMenu';
+import Menu from './Menu';
+import { Button } from '../ui/button';
+---
+
+<header class="flex flex-row items-center justify-between p-4">
+  <a href="/">
+    <Image src={Logo} alt='logo' class='w-14 md:w-20 h-auto' />
+  </a>
+
+  <section class="hidden md:block">
+    <Menu client:load />
+  </section>
+
+  <section class="hidden md:block">
+    <a href="/auth/login">
+      <Button>Acceder</Button>
+    </a>
+  </section>
+
+  <section class="md:hidden">
+    <MobileMenu client:load />
+  </section>
+</header>
